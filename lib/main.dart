@@ -80,13 +80,13 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               const Text(
-                '3rd Year Undergraduate • CSE & Applied Mathematics',
+                '3rd Year Undergraduate • CSE Core',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14, color: Colors.black54),
               ),
               const SizedBox(height: 6),
               const Text(
-                'Statistical Analysis • Numerical Optimization • Data Visualization',
+                'Statistical Analysis • Data Visualization',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 13,
@@ -156,7 +156,7 @@ class AboutScreen extends StatelessWidget {
                   const Icon(Icons.person, size: 64, color: Color(0xFF1E6B52)),
                   const SizedBox(height: 20),
                   const Text(
-                    "Hello! I'm Swarna Venkata Lokesh, a Computer Science & Applied Mathematics student. "
+                    "Hello! I'm Swarna Venkata Lokesh, a Computer Science Engineering (CSE Core) student. "
                     "I specialize in web development, statistical data analysis, and building interactive, user-focused applications.",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 15, height: 1.5, color: Colors.black87),
