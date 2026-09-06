@@ -27,39 +27,19 @@ class PortfolioApp extends StatelessWidget {
 class PortfolioHomePage extends StatelessWidget {
   const PortfolioHomePage({super.key});
 
-  final List<Map<String, String>> projects = const [
-    {
-      'title': 'Student Hub Website',
-      'category': 'Web Development',
-      'description':
-          'Designed and developed a user-centric website using frontend technologies. Implemented college-related features such as holidays and important events using JavaScript with a focus on usability and responsiveness.',
-    },
-    {
-      'title': 'Data Analysis Using Excel',
-      'category': 'Data Visualization',
-      'description':
-          'Analyzed datasets including Billionaires, Comic Characters, and Netflix Movies/Shows. Created bar, pie, and line charts to visualize trends and presented results in a detailed report.',
-    },
-    {
-      'title': 'Statistical Analysis of Lung Cancer Dataset',
-      'category': 'Healthcare Analytics',
-      'description':
-          'Conducted statistical analysis comparing mean values across patient groups. Evaluated age, gender, smoking status, tumor size, cancer stage, survival time, mutation status, and histology types.',
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Portfolio'),
-        elevation: 2,
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Header
             const Text(
               'SWARNA VENKATA LOKESH',
               style: TextStyle(
@@ -68,66 +48,103 @@ class PortfolioHomePage extends StatelessWidget {
                 letterSpacing: 1.1,
               ),
             ),
-            const SizedBox(height: 8),
-            Text(
-              'Developer & Data Analyst',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.indigoAccent.shade100,
-              ),
-            ),
-            const Divider(height: 32, thickness: 1),
+            const SizedBox(height: 16),
             const Text(
-              'Projects',
+              'PROJECTS -',
               style: TextStyle(
                 fontSize: 22,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),
-            ...projects.map(
-              (project) => Card(
-                margin: const EdgeInsets.only(bottom: 16.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              project['title']!,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          Chip(
-                            label: Text(
-                              project['category']!,
-                              style: const TextStyle(fontSize: 11),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        project['description']!,
-                        style: TextStyle(
-                          color: Colors.grey.shade300,
-                          height: 1.4,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            const SizedBox(height: 20),
+
+            // Project 1
+            const Text(
+              '1. Student Hub Website',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const BulletPoint(
+              text:
+                  'Designed and developed a user-centric website using frontend technologies.',
+            ),
+            const BulletPoint(
+              text:
+                  'Implemented college-related features such as holidays and important events using JavaScript.',
+            ),
+            const BulletPoint(
+              text: 'Focused on usability, responsiveness, and clean UI design.',
+            ),
+            const SizedBox(height: 24),
+
+            // Project 2
+            const Text(
+              '2. Data Analysis Using Excel',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const BulletPoint(
+              text:
+                  'Analyzed datasets including Billionaires, Comic Characters, and Netflix Movies/Shows.',
+            ),
+            const BulletPoint(
+              text:
+                  'Created bar, pie, and line charts to visualize trends and insights.',
+            ),
+            const BulletPoint(
+              text:
+                  'Identified influencing factors and presented results in a detailed report.',
+            ),
+            const SizedBox(height: 24),
+
+            // Project 3
+            const Text(
+              '3. Statistical Analysis of Lung Cancer Dataset',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const BulletPoint(
+              text:
+                  'Conducted statistical analysis to compare mean values across different patient groups.',
+            ),
+            const BulletPoint(
+              text:
+                  'Analyzed features such as age, gender, smoking status, tumor size, cancer stage, and survival time.',
+            ),
+            const BulletPoint(
+              text:
+                  'Evaluated mutation status and histology types to support clinical research insights.',
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class BulletPoint extends StatelessWidget {
+  final String text;
+
+  const BulletPoint({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6.0, left: 12.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            '• ',
+            style: TextStyle(fontSize: 16, height: 1.4),
+          ),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 15, height: 1.4),
+            ),
+          ),
+        ],
       ),
     );
   }
